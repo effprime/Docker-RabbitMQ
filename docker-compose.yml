@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    rabbitmq:
+        image: rabbitmq:3.8.5-management
+        container_name: rabbitmq
+        hostname: ${RABBITMQ_HOSTNAME}
+        volumes:
+            - ./rabbitmq/data/:/var/lib/rabbitmq/
+        environment:
+            RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+            RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+        ports:
+            - ${AMQP_PORT}:5671
+            - ${AMQP_SSL_PORT}:5672
+            - ${WEB_PORT}:15672
+            - ${CLI_PORT}:25672
