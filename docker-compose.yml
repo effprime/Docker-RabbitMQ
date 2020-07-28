@@ -11,6 +11,7 @@ services:
             RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
             RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
         ports:
+            - ${DISCOVERY_PORT}:4369
             - ${AMQP_PORT}:5671
             - ${AMQP_SSL_PORT}:5672
             - ${WEB_PORT}:15672
